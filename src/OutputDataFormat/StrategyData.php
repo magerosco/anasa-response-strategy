@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Services\ResponseStrategy\OutputDataFormat;
+
+namespace Anasa\ResponseStrategy\OutputDataFormat;
 
 
 class StrategyData implements StrategyDataInterface

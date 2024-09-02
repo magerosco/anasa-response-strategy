@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/ResponseContext.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1725254881193,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1725255003713,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <?php\n \n namespace Anasa\\ResponseStrategy;\n \n-use App\\Services\\ResponseStrategy\\OutputDataFormat\\StrategyDataInterface;\n+use Anasa\\ResponseStrategy\\OutputDataFormat\\StrategyDataInterface;\n \n /**\n  * Class ResponseContext\n  * it's a context that will be used to execute the strategy\n"
+                }
+            ],
+            "date": 1725254881193,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace Anasa\\ResponseStrategy;\n\nuse App\\Services\\ResponseStrategy\\OutputDataFormat\\StrategyDataInterface;\n\n/**\n * Class ResponseContext\n * it's a context that will be used to execute the strategy\n *\n */\nclass ResponseContext implements ResponseContextInterface\n{\n    protected $strategy;\n\n    public function __construct()\n    {\n        $this->strategy = null;\n    }\n\n    /**\n     * Used by the middleware to set a concrete response strategy.\n     */\n    public function setStrategy(ResponseStrategyInterface $strategy)\n    {\n        $this->strategy = $strategy;\n    }\n\n    /**\n     * It is used by the controller to execute the strategy as a concrete instance of the response.\n     */\n    public function executeStrategy(StrategyDataInterface $data = null): mixed\n    {\n        return $this->strategy->getResponse($data);\n    }\n}\n"
+        }
+    ]
+}

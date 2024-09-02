@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/Output/ApiResponseStrategy.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1725254940522,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1725254948542,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,7 @@\n <?php\n \n-namespace App\\Services\\ResponseStrategy\\Output;\n-namespace Anasa\\ResponseStrategy\\OutputDataFormat;\n+namespace Anasa\\ResponseStrategy\\Output;\n \n use Throwable;\n use App\\Services\\ResponseStrategy\\ResponseStrategyInterface;\n use App\\Services\\ResponseStrategy\\OutputDataFormat\\StrategyDataInterface;\n"
+                },
+                {
+                    "date": 1725254986956,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,10 @@\n \n namespace Anasa\\ResponseStrategy\\Output;\n \n use Throwable;\n-use App\\Services\\ResponseStrategy\\ResponseStrategyInterface;\n-use App\\Services\\ResponseStrategy\\OutputDataFormat\\StrategyDataInterface;\n+use Anasa\\ResponseStrategy\\ResponseStrategyInterface;\n+use Anasa\\ResponseStrategy\\OutputDataFormat\\StrategyDataInterface;\n \n class ApiResponseStrategy implements ResponseStrategyInterface\n {\n     public function getResponse(StrategyDataInterface $data = null)\n"
+                }
+            ],
+            "date": 1725254940522,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Services\\ResponseStrategy\\Output;\nnamespace Anasa\\ResponseStrategy\\OutputDataFormat;\n\nuse Throwable;\nuse App\\Services\\ResponseStrategy\\ResponseStrategyInterface;\nuse App\\Services\\ResponseStrategy\\OutputDataFormat\\StrategyDataInterface;\n\nclass ApiResponseStrategy implements ResponseStrategyInterface\n{\n    public function getResponse(StrategyDataInterface $data = null)\n    {\n        try {\n            $result = ['data' => $data !== null ? $data->getData() : null];\n\n            if ($data !== null && !empty($data->getMessage())) {\n                $result['message'] = $data->getMessage();\n            }\n\n            $statusCode = $data !== null ? $data->getHttpResponse() : 200;\n\n            return response()->json($result, $statusCode);\n        } catch (Throwable $e) {\n            return $e->getMessage();\n        }\n    }\n}\n"
+        }
+    ]
+}

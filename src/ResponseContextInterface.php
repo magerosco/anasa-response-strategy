@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services\ResponseStrategy;
+namespace Anasa\ResponseStrategy;
 
-use App\Services\ResponseStrategy\OutputDataFormat\StrategyDataInterface;
+use Anasa\ResponseStrategy\OutputDataFormat\StrategyDataInterface;
 
 
 interface ResponseContextInterface

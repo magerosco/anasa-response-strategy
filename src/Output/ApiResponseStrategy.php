@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Services\ResponseStrategy\Output;
+namespace Anasa\ResponseStrategy\Output;
 
 use Throwable;
-use App\Services\ResponseStrategy\ResponseStrategyInterface;
-use App\Services\ResponseStrategy\OutputDataFormat\StrategyDataInterface;
+use Anasa\ResponseStrategy\ResponseStrategyInterface;
+use Anasa\ResponseStrategy\OutputDataFormat\StrategyDataInterface;
 
 class ApiResponseStrategy implements ResponseStrategyInterface
 {

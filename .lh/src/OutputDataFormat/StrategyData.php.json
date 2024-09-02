@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/OutputDataFormat/StrategyData.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1725254917523,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1725254925566,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n <?php\n \n-namespace App\\Services\\ResponseStrategy\\OutputDataFormat;\n-namespace Anasa\\ResponseStrategy;\n \n+namespace Anasa\\ResponseStrategy\\OutputDataFormat;\n \n+\n class StrategyData implements StrategyDataInterface\n {\n     private array|object $data = [];\n     private string $message = '';\n"
+                }
+            ],
+            "date": 1725254917523,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Services\\ResponseStrategy\\OutputDataFormat;\nnamespace Anasa\\ResponseStrategy;\n\n\nclass StrategyData implements StrategyDataInterface\n{\n    private array|object $data = [];\n    private string $message = '';\n    private int $response = 200;\n\n    public function setStrategyData(array|object $data = [], string $message = '', int $response = 200): StrategyDataInterface\n    {\n        $this->data = $data;\n        $this->message = $message;\n        $this->response = $response;\n\n        return $this;\n    }\n\n    public function getData(): array|object\n    {\n        return $this->data;\n    }\n\n    public function getMessage(): string\n    {\n        return $this->message;\n    }\n\n    public function getHttpResponse(): int\n    {\n        return $this->response;\n    }\n}\n"
+        }
+    ]
+}

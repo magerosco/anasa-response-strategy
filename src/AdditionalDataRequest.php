@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\ResponseStrategy;
+namespace Anasa\ResponseStrategy;
 
 class AdditionalDataRequest
 {

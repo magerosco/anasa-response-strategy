@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/Facades/AdditionalDataRequest.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1725254963715,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1725254970342,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <?php\n-namespace App\\Services\\ResponseStrategy\\Facades;\n-namespace Anasa\\ResponseStrategy\\Output;\n \n+namespace Anasa\\ResponseStrategy\\Facades;\n \n+\n use Illuminate\\Support\\Facades\\Facade;\n \n class AdditionalDataRequest extends Facade\n {\n"
+                }
+            ],
+            "date": 1725254963715,
+            "name": "Commit-0",
+            "content": "<?php\nnamespace App\\Services\\ResponseStrategy\\Facades;\nnamespace Anasa\\ResponseStrategy\\Output;\n\n\nuse Illuminate\\Support\\Facades\\Facade;\n\nclass AdditionalDataRequest extends Facade\n{\n    protected static function getFacadeAccessor()\n    {\n        return 'additionalDataRequest';\n    }\n}\n"
+        }
+    ]
+}

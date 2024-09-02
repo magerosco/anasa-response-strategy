@@ -1,5 +1,6 @@
 <?php
-namespace App\Services\ResponseStrategy\Facades;
+
+namespace Anasa\ResponseStrategy\Facades;
 
 
 use Illuminate\Support\Facades\Facade;

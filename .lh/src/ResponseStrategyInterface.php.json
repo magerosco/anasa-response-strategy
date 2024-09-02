@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/ResponseStrategyInterface.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1725254890266,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1725255010970,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <?php\n \n namespace Anasa\\ResponseStrategy;\n \n-use App\\Services\\ResponseStrategy\\OutputDataFormat\\StrategyDataInterface;\n+use Anasa\\ResponseStrategy\\OutputDataFormat\\StrategyDataInterface;\n \n interface ResponseStrategyInterface\n {\n     public function getResponse(StrategyDataInterface $data);\n"
+                }
+            ],
+            "date": 1725254890266,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace Anasa\\ResponseStrategy;\n\nuse App\\Services\\ResponseStrategy\\OutputDataFormat\\StrategyDataInterface;\n\ninterface ResponseStrategyInterface\n{\n    public function getResponse(StrategyDataInterface $data);\n}\n"
+        }
+    ]
+}

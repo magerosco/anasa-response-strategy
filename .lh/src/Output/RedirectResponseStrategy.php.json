@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/Output/RedirectResponseStrategy.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1725254951950,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1725254993369,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,12 @@\n <?php\n \n namespace Anasa\\ResponseStrategy\\Output;\n-namespace App\\Services\\ResponseStrategy\\Output;\n \n use Throwable;\n-use App\\Services\\ResponseStrategy\\ResponseStrategyInterface;\n-use App\\Services\\ResponseStrategy\\Facades\\AdditionalDataRequest;\n-use App\\Services\\ResponseStrategy\\OutputDataFormat\\StrategyDataInterface;\n+use Anasa\\ResponseStrategy\\ResponseStrategyInterface;\n+use Anasa\\ResponseStrategy\\Facades\\AdditionalDataRequest;\n+use Anasa\\ResponseStrategy\\OutputDataFormat\\StrategyDataInterface;\n \n class RedirectResponseStrategy implements ResponseStrategyInterface\n {\n     public function getResponse(StrategyDataInterface $data = null)\n"
+                }
+            ],
+            "date": 1725254951950,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace Anasa\\ResponseStrategy\\Output;\nnamespace App\\Services\\ResponseStrategy\\Output;\n\nuse Throwable;\nuse App\\Services\\ResponseStrategy\\ResponseStrategyInterface;\nuse App\\Services\\ResponseStrategy\\Facades\\AdditionalDataRequest;\nuse App\\Services\\ResponseStrategy\\OutputDataFormat\\StrategyDataInterface;\n\nclass RedirectResponseStrategy implements ResponseStrategyInterface\n{\n    public function getResponse(StrategyDataInterface $data = null)\n    {\n        try {\n            $json_data = ['data' => $data !== null ? $data->getData()?->toJson() : null];\n\n            if ($data !== null && !empty($data->getMessage())) {\n                $result['message'] = $data->getMessage();\n            }\n\n            $statusCode = $data !== null ? $data->getHttpResponse() : 200;\n\n            return redirect()->route(AdditionalDataRequest::getRoute())->with($json_data, $statusCode);\n        } catch (Throwable $e) {\n            return $e->getMessage();\n        }\n    }\n}\n"
+        }
+    ]
+}

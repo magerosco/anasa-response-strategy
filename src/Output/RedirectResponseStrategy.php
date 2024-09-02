@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Services\ResponseStrategy\Output;
+namespace Anasa\ResponseStrategy\Output;
 
 use Throwable;
-use App\Services\ResponseStrategy\ResponseStrategyInterface;
-use App\Services\ResponseStrategy\Facades\AdditionalDataRequest;
-use App\Services\ResponseStrategy\OutputDataFormat\StrategyDataInterface;
+use Anasa\ResponseStrategy\ResponseStrategyInterface;
+use Anasa\ResponseStrategy\Facades\AdditionalDataRequest;
+use Anasa\ResponseStrategy\OutputDataFormat\StrategyDataInterface;
 
 class RedirectResponseStrategy implements ResponseStrategyInterface
 {

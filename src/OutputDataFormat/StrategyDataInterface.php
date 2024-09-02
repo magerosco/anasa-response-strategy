@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\ResponseStrategy\OutputDataFormat;
+namespace Anasa\ResponseStrategy\OutputDataFormat;
 
 interface StrategyDataInterface
 {

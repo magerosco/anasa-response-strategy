@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Services\ResponseStrategy;
+namespace Anasa\ResponseStrategy;
 
 use Exception;
-use App\Services\ResponseStrategy\Output\ApiResponseStrategy;
-use App\Services\ResponseStrategy\Output\ViewResponseStrategy;
-use App\Services\ResponseStrategy\Output\RedirectResponseStrategy;
+use Anasa\ResponseStrategy\Output\ApiResponseStrategy;
+use Anasa\ResponseStrategy\Output\ViewResponseStrategy;
+use Anasa\ResponseStrategy\Output\RedirectResponseStrategy;
 
 class ResponseStrategyFactory
 {

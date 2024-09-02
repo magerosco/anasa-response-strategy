@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/AdditionalDataRequest.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1725254872300,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1725255108602,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,6 @@\n <?php\n \n-namespace App\\Services\\ResponseStrategy;\n namespace Anasa\\ResponseStrategy;\n \n class AdditionalDataRequest\n {\n"
+                }
+            ],
+            "date": 1725254872300,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Services\\ResponseStrategy;\nnamespace Anasa\\ResponseStrategy;\n\nclass AdditionalDataRequest\n{\n    protected $method;\n    protected $view;\n    protected $route;\n\n    /**\n     * Set the value of route\n     */\n    public function setRoute($route): self\n    {\n        $this->route = $route;\n\n        return $this;\n    }\n    /**\n     * Set the value of route\n     */\n    public function setView($view): self\n    {\n        $this->view = $view;\n\n        return $this;\n    }\n\n    /**\n     * Set the value of method\n     */\n    public function setMethod($method): self\n    {\n        $this->method = $method;\n\n        return $this;\n    }\n\n    /**\n     * Get the value of method\n     */\n    public function getMethod()\n    {\n        return $this->method;\n    }\n\n    /**\n     * Get the value of view\n     */\n    public function getView()\n    {\n        return $this->view;\n    }\n\n    /**\n     * Get the value of route\n     */\n    public function getRoute()\n    {\n        return $this->route;\n    }\n}\n"
+        }
+    ]
+}
