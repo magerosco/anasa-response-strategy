@@ -1,5 +1,5 @@
 # anasa-response-strategy
-Package to isolate the logic that determines the return type of the controller based on the source (API/Web)
+Package to isolate the logic that determines the return type of the controller based on the source (API/Web).
 
 This is an optional solution in Laravel to handle the type of output that will be implemented for a crud. Make sure to respect the naming standards or you will need to modify the AdditionalDataRequest inputs for (setMethod, setView, setRoute).
 
@@ -69,7 +69,7 @@ class ApiOrWebMiddleware
 
 ```
 **Notes:**
-- setMethod will set as API for all input
+- setMethod will set as API for all input json output.
 - If your project uses a custom prefix for API inputs, make sure to add the Accept: application/json Header to identify if a json output.
 ```php
 AdditionalDataRequest::setMethod($request->expectsJson() || $request->is('api/*') ? 'API' : $methodName);
