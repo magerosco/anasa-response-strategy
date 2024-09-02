@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 3,
             "patches": [
                 {
                     "date": 1725254872300,
@@ -12,6 +12,14 @@
                 {
                     "date": 1725255108602,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,6 @@\n <?php\n \n-namespace App\\Services\\ResponseStrategy;\n namespace Anasa\\ResponseStrategy;\n \n class AdditionalDataRequest\n {\n"
+                },
+                {
+                    "date": 1725280210944,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,21 @@\n     protected $method;\n     protected $view;\n     protected $route;\n \n+    private function __construct()\n+    {\n+    }\n+\n+    public static function getInstance()\n+    {\n+        if (self::$instance === null) {\n+            self::$instance = new self();\n+        }\n+\n+        return self::$instance;\n+    }\n+    \n     /**\n      * Set the value of route\n      */\n     public function setRoute($route): self\n"
+                },
+                {
+                    "date": 1725280220101,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,11 @@\n namespace Anasa\\ResponseStrategy;\n \n class AdditionalDataRequest\n {\n+    \n+    private static $instance;\n+    \n     protected $method;\n     protected $view;\n     protected $route;\n \n@@ -19,9 +22,9 @@\n         }\n \n         return self::$instance;\n     }\n-    \n+\n     /**\n      * Set the value of route\n      */\n     public function setRoute($route): self\n"
                 }
             ],
             "date": 1725254872300,

@@ -15,8 +15,7 @@ use Closure;
 use Illuminate\Http\Request;
 use SebastianBergmann\Type\Exception;
 use Symfony\Component\HttpFoundation\Response;
-use Anasa\ResponseStrategy\{ResponseStrategyFactory,ResponseContextInterface};
-use Anasa\ResponseStrategy\Facades\AdditionalDataRequest;
+use Anasa\ResponseStrategy\{AdditionalDataRequest,ResponseStrategyFactory,ResponseContextInterface};
 
 class ApiOrWebMiddleware
 {
@@ -37,28 +36,29 @@ class ApiOrWebMiddleware
          * some dinamic data to be used in the strategy to identify and build
          * the response. A facade will be used.
          */
-        $this->setAdditionalDataRequest($request);
+        $service = AdditionalDataRequest::getInstance();
+        $this->setAdditionalDataRequest($request, $service);
 
-        $this->defineResponseStrategy();
+        $this->defineResponseStrategy($service);
 
         return $next($request);
     }
 
-    private function setAdditionalDataRequest(Request $request): void
+    private function setAdditionalDataRequest(Request $request, $service): void
     {
         $action = $request->route()->getAction();
         $controller = class_basename($action['controller']);
         [, $methodName] = explode('@', $controller);
         
-        AdditionalDataRequest::setMethod($request->expectsJson() || $request->is('api/*') ? 'API' : $methodName);
-        AdditionalDataRequest::setView($request->route()->getName());
-        AdditionalDataRequest::setRoute($request->route()->getName());
+        $service->setMethod($request->expectsJson() || $request->is('api/*') ? 'API' : $methodName);
+        $service->setView($request->route()->getName());
+        $service->setRoute($request->route()->getName());
     }
     
     public function defineResponseStrategy()
     {
         try {
-            $strategy = ResponseStrategyFactory::createStrategy(AdditionalDataRequest::getMethod());
+            $strategy = ResponseStrategyFactory::createStrategy($service->getMethod());
         } catch (Exception $e) {
             throw new Exception('Unknown method');
         }
@@ -72,7 +72,7 @@ class ApiOrWebMiddleware
 - setMethod will set as API for all input json output.
 - If your project uses a custom prefix for API inputs, make sure to add the Accept: application/json Header to identify if a json output.
 ```php
-AdditionalDataRequest::setMethod($request->expectsJson() || $request->is('api/*') ? 'API' : $methodName);
+$service->setMethod($request->expectsJson() || $request->is('api/*') ? 'API' : $methodName);
 ```
 
 2- Set Service Provider and Response Service provider,
@@ -220,7 +220,7 @@ class YourController extends Controller
         return $this->responseContext->executeStrategy($this->strategyData->setStrategyData([], 'YourResource deleted successfully', Response::HTTP_OK));
     }
 ```
-4- For testing, you can add: *AdditionalDataRequest::setMethod('API');*
+4- For testing, you can add: *$service->setMethod('API');*
 ```php
 namespace Tests\Feature;
 
@@ -235,6 +235,6 @@ class GatewayTest extends TestCase
     {
         parent::setUp();
 
-        AdditionalDataRequest::setMethod('API');
+        $service->setMethod('API');
     }
 ```

@@ -4,14 +4,16 @@ namespace Anasa\ResponseStrategy\Output;
 
 use Throwable;
 use Anasa\ResponseStrategy\ResponseStrategyInterface;
-use Anasa\ResponseStrategy\Facades\AdditionalDataRequest;
+use Anasa\ResponseStrategy\AdditionalDataRequest;
 use Anasa\ResponseStrategy\OutputDataFormat\StrategyDataInterface;
 
 class RedirectResponseStrategy implements ResponseStrategyInterface
 {
     public function getResponse(StrategyDataInterface $data = null)
     {
-        try {
+        try {            
+            $service = AdditionalDataRequest::getInstance();
+
             $json_data = ['data' => $data !== null ? $data->getData()?->toJson() : null];
 
             if ($data !== null && !empty($data->getMessage())) {
@@ -20,7 +22,7 @@ class RedirectResponseStrategy implements ResponseStrategyInterface
 
             $statusCode = $data !== null ? $data->getHttpResponse() : 200;
 
-            return redirect()->route(AdditionalDataRequest::getRoute())->with($json_data, $statusCode);
+            return redirect()->route($service->getRoute())->with($json_data, $statusCode);
         } catch (Throwable $e) {
             return $e->getMessage();
         }

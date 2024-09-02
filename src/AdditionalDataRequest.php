@@ -4,9 +4,24 @@ namespace Anasa\ResponseStrategy;
 
 class AdditionalDataRequest
 {
+    private static $instance;
+
     protected $method;
     protected $view;
     protected $route;
+
+    private function __construct()
+    {
+    }
+
+    public static function getInstance()
+    {
+        if (self::$instance === null) {
+            self::$instance = new self();
+        }
+
+        return self::$instance;
+    }
 
     /**
      * Set the value of route

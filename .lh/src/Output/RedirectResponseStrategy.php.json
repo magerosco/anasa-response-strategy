@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 7,
             "patches": [
                 {
                     "date": 1725254951950,
@@ -12,6 +12,30 @@
                 {
                     "date": 1725254993369,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,12 @@\n <?php\n \n namespace Anasa\\ResponseStrategy\\Output;\n-namespace App\\Services\\ResponseStrategy\\Output;\n \n use Throwable;\n-use App\\Services\\ResponseStrategy\\ResponseStrategyInterface;\n-use App\\Services\\ResponseStrategy\\Facades\\AdditionalDataRequest;\n-use App\\Services\\ResponseStrategy\\OutputDataFormat\\StrategyDataInterface;\n+use Anasa\\ResponseStrategy\\ResponseStrategyInterface;\n+use Anasa\\ResponseStrategy\\Facades\\AdditionalDataRequest;\n+use Anasa\\ResponseStrategy\\OutputDataFormat\\StrategyDataInterface;\n \n class RedirectResponseStrategy implements ResponseStrategyInterface\n {\n     public function getResponse(StrategyDataInterface $data = null)\n"
+                },
+                {
+                    "date": 1725280247077,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n \n use Throwable;\n use Anasa\\ResponseStrategy\\ResponseStrategyInterface;\n use Anasa\\ResponseStrategy\\Facades\\AdditionalDataRequest;\n+use App\\Services\\ResponseStrategy\\AdditionalDataRequest;\n use Anasa\\ResponseStrategy\\OutputDataFormat\\StrategyDataInterface;\n \n class RedirectResponseStrategy implements ResponseStrategyInterface\n {\n"
+                },
+                {
+                    "date": 1725280270914,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,17 +3,18 @@\n namespace Anasa\\ResponseStrategy\\Output;\n \n use Throwable;\n use Anasa\\ResponseStrategy\\ResponseStrategyInterface;\n-use Anasa\\ResponseStrategy\\Facades\\AdditionalDataRequest;\n use App\\Services\\ResponseStrategy\\AdditionalDataRequest;\n use Anasa\\ResponseStrategy\\OutputDataFormat\\StrategyDataInterface;\n \n class RedirectResponseStrategy implements ResponseStrategyInterface\n {\n     public function getResponse(StrategyDataInterface $data = null)\n     {\n         try {\n+            $service = AdditionalDataRequest::getInstance();\n+            \n             $json_data = ['data' => $data !== null ? $data->getData()?->toJson() : null];\n \n             if ($data !== null && !empty($data->getMessage())) {\n                 $result['message'] = $data->getMessage();\n"
+                },
+                {
+                    "date": 1725280279196,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,11 +10,11 @@\n class RedirectResponseStrategy implements ResponseStrategyInterface\n {\n     public function getResponse(StrategyDataInterface $data = null)\n     {\n-        try {\n+        try {            \n             $service = AdditionalDataRequest::getInstance();\n-            \n+\n             $json_data = ['data' => $data !== null ? $data->getData()?->toJson() : null];\n \n             if ($data !== null && !empty($data->getMessage())) {\n                 $result['message'] = $data->getMessage();\n"
+                },
+                {
+                    "date": 1725280287384,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n             }\n \n             $statusCode = $data !== null ? $data->getHttpResponse() : 200;\n \n-            return redirect()->route(AdditionalDataRequest::getRoute())->with($json_data, $statusCode);\n+            return redirect()->route($service->getRoute())->with($json_data, $statusCode);\n         } catch (Throwable $e) {\n             return $e->getMessage();\n         }\n     }\n"
+                },
+                {
+                    "date": 1725280311916,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n namespace Anasa\\ResponseStrategy\\Output;\n \n use Throwable;\n use Anasa\\ResponseStrategy\\ResponseStrategyInterface;\n-use App\\Services\\ResponseStrategy\\AdditionalDataRequest;\n+use Anasa\\Services\\ResponseStrategy\\AdditionalDataRequest;\n use Anasa\\ResponseStrategy\\OutputDataFormat\\StrategyDataInterface;\n \n class RedirectResponseStrategy implements ResponseStrategyInterface\n {\n"
+                },
+                {
+                    "date": 1725280325472,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n namespace Anasa\\ResponseStrategy\\Output;\n \n use Throwable;\n use Anasa\\ResponseStrategy\\ResponseStrategyInterface;\n-use Anasa\\Services\\ResponseStrategy\\AdditionalDataRequest;\n+use Anasa\\ResponseStrategy\\AdditionalDataRequest;\n use Anasa\\ResponseStrategy\\OutputDataFormat\\StrategyDataInterface;\n \n class RedirectResponseStrategy implements ResponseStrategyInterface\n {\n"
                 }
             ],
             "date": 1725254951950,

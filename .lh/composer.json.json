@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 13,
+            "activePatchIndex": 14,
             "patches": [
                 {
                     "date": 1725253498521,
@@ -60,6 +60,10 @@
                 {
                     "date": 1725255245329,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,7 +16,7 @@\n     \"minimum-stability\": \"dev\",\n     \"prefer-stable\": true,\n     \"require\": {\n         \"php\": \"^8.0\",\n-        \"illuminate/support\": \"^11.0\"\n+        \"laravel/framework\": \"^11.9\"\n     }\n }\n"
+                },
+                {
+                    "date": 1725280180041,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,7 @@\n     ],\n     \"minimum-stability\": \"dev\",\n     \"prefer-stable\": true,\n     \"require\": {\n-        \"php\": \"^8.0\",\n-        \"laravel/framework\": \"^11.9\"\n+        \"php\": \"^8.0\"\n     }\n }\n"
                 }
             ],
             "date": 1725253498521,

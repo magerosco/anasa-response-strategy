@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 2,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1725254940522,
@@ -16,6 +16,14 @@
                 {
                     "date": 1725254986956,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,10 @@\n \n namespace Anasa\\ResponseStrategy\\Output;\n \n use Throwable;\n-use App\\Services\\ResponseStrategy\\ResponseStrategyInterface;\n-use App\\Services\\ResponseStrategy\\OutputDataFormat\\StrategyDataInterface;\n+use Anasa\\ResponseStrategy\\ResponseStrategyInterface;\n+use Anasa\\ResponseStrategy\\OutputDataFormat\\StrategyDataInterface;\n \n class ApiResponseStrategy implements ResponseStrategyInterface\n {\n     public function getResponse(StrategyDataInterface $data = null)\n"
+                },
+                {
+                    "date": 1725277472226,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     {\n         try {\n             $result = ['data' => $data !== null ? $data->getData() : null];\n \n-            if ($data !== null && !empty($data->getMessage())) {\n+            if ($data !== null && !empty($data?->getMessage())) {\n                 $result['message'] = $data->getMessage();\n             }\n \n             $statusCode = $data !== null ? $data->getHttpResponse() : 200;\n"
+                },
+                {
+                    "date": 1725277501515,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     {\n         try {\n             $result = ['data' => $data !== null ? $data->getData() : null];\n \n-            if ($data !== null && !empty($data?->getMessage())) {\n+            if ($data !== null && !empty($data->getMessage())) {\n                 $result['message'] = $data->getMessage();\n             }\n \n             $statusCode = $data !== null ? $data->getHttpResponse() : 200;\n"
                 }
             ],
             "date": 1725254940522,

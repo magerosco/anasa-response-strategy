@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 7,
             "patches": [
                 {
                     "date": 1725254963715,
@@ -12,6 +12,30 @@
                 {
                     "date": 1725254970342,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <?php\n-namespace App\\Services\\ResponseStrategy\\Facades;\n-namespace Anasa\\ResponseStrategy\\Output;\n \n+namespace Anasa\\ResponseStrategy\\Facades;\n \n+\n use Illuminate\\Support\\Facades\\Facade;\n \n class AdditionalDataRequest extends Facade\n {\n"
+                },
+                {
+                    "date": 1725279326308,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n \n use Illuminate\\Support\\Facades\\Facade;\n \n-class AdditionalDataRequest extends Facade\n+class AdditionalDataRequest \n {\n     protected static function getFacadeAccessor()\n     {\n         return 'additionalDataRequest';\n"
+                },
+                {
+                    "date": 1725279332038,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,11 +2,9 @@\n \n namespace Anasa\\ResponseStrategy\\Facades;\n \n \n-use Illuminate\\Support\\Facades\\Facade;\n-\n-class AdditionalDataRequest \n+class AdditionalDataRequest\n {\n     protected static function getFacadeAccessor()\n     {\n         return 'additionalDataRequest';\n"
+                },
+                {
+                    "date": 1725279337435,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n \n class AdditionalDataRequest\n {\n-    protected static function getFacadeAccessor()\n+    p static function getFacadeAccessor()\n     {\n         return 'additionalDataRequest';\n     }\n }\n"
+                },
+                {
+                    "date": 1725279347495,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n \n class AdditionalDataRequest\n {\n-    p static function getFacadeAccessor()\n+    public static function set()\n     {\n         return 'additionalDataRequest';\n     }\n }\n"
+                },
+                {
+                    "date": 1725279391702,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+<?php\n+\n+namespace Anasa\\ResponseStrategy\\Facades;\n+\n+\n+use Illuminate\\Support\\Facades\\Facade;\n+\n+class AdditionalDataRequest\n+{\n+    protected static function getFacadeAccessor()\n+    {\n+        return 'additionalDataRequest';\n+    }\n+}\n"
+                },
+                {
+                    "date": 1725279424399,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,26 +1,14 @@\n <?php\n+namespace App\\Services\\ResponseStrategy\\Facades;\n+namespace Anasa\\ResponseStrategy\\Output;\n \n-namespace Anasa\\ResponseStrategy\\Facades;\n \n-\n use Illuminate\\Support\\Facades\\Facade;\n \n-class AdditionalDataRequest\n+class AdditionalDataRequest extends Facade\n {\n     protected static function getFacadeAccessor()\n     {\n         return 'additionalDataRequest';\n     }\n }\n-<?php\n-\n-namespace Anasa\\ResponseStrategy\\Facades;\n-\n-\n-class AdditionalDataRequest\n-{\n-    public static function set()\n-    {\n-        return 'additionalDataRequest';\n-    }\n-}\n"
                 }
             ],
             "date": 1725254963715,
