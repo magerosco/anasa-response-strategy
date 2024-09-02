@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 10,
+            "activePatchIndex": 11,
             "patches": [
                 {
                     "date": 1725253498521,
@@ -48,6 +48,10 @@
                 {
                     "date": 1725253775576,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,22 @@\n+{\n+    \"name\": \"anasa/response-strategy\",\n+    \"description\": \"Package to isolate the logic that determines the return type of the controller based on the source (API/Web)\",\n+    \"type\": \"library\",\n+    \"autoload\": {\n+        \"psr-4\": {\n+            \"Anasa\\\\ResponseStrategy\\\\\": \"src/\"\n+        }\n+    },\n+    \"authors\": [\n+        {\n+            \"name\": \"Alejandro Anasagasti Cambara\",\n+            \"email\": \"anasagastialejandro@gmail.com\"\n+        }\n+    ],\n+    \"minimum-stability\": \"dev\",\n+    \"prefer-stable\": true,\n+    \"require\": {\n+        \"php\": \"^8.0\",\n+        \"illuminate/support\": \"^9.0|^10.0\"\n+    }\n+}\n"
+                },
+                {
+                    "date": 1725253872798,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,29 +16,7 @@\n     \"minimum-stability\": \"dev\",\n     \"prefer-stable\": true,\n     \"require\": {\n         \"php\": \"^8.0\",\n-        \"illuminate/support\": \"^9.0|^10.0\"\n+        \"illuminate/support\": \"^10.0\"\n     }\n }\n-{\n-    \"name\": \"anasa/response-strategy\",\n-    \"description\": \"Package to isolate the logic that determines the return type of the controller based on the source (API/Web)\",\n-    \"type\": \"library\",\n-    \"autoload\": {\n-        \"psr-4\": {\n-            \"Anasa\\\\ResponseStrategy\\\\\": \"src/\"\n-        }\n-    },\n-    \"authors\": [\n-        {\n-            \"name\": \"Alejandro Anasagasti Cambara\",\n-            \"email\": \"anasagastialejandro@gmail.com\"\n-        }\n-    ],\n-    \"minimum-stability\": \"dev\",,\n-    \"prefer-stable\": true\n-    \"require\": {\n-        \"php\": \"^8.0\",\n-        \"illuminate/support\": \"^9.0|^10.0\"\n-    }\n-}\n"
                 }
             ],
             "date": 1725253498521,
