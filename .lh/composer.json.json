@@ -1,0 +1,26 @@
+{
+    "sourceFile": "composer.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1725253498521,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1725253504069,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,8 @@\n         }\n     ],\n     \"minimum-stability\": \"dev\",\n     \"require\": {\n-        \"php\": \"8.2\",\n+        \"php\": \"^^8.2\",\n         \"illuminate/support\": \"^8.0|^9.0|^10.0\"\n     }\n }\n"
+                },
+                {
+                    "date": 1725253522320,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,9 @@\n         }\n     ],\n     \"minimum-stability\": \"dev\",\n     \"require\": {\n-        \"php\": \"^^8.2\",\n+        \n+        \"php\": \"^8.2\",\n         \"illuminate/support\": \"^8.0|^9.0|^10.0\"\n     }\n }\n"
+                }
+            ],
+            "date": 1725253498521,
+            "name": "Commit-0",
+            "content": "{\n    \"name\": \"anasa/response-strategy\",\n    \"description\": \"Package to isolate the logic that determines the return type of the controller based on the source (API/Web)\",\n    \"type\": \"library\",\n    \"autoload\": {\n        \"psr-4\": {\n            \"Anasa\\\\ResponseStrategy\\\\\": \"src/\"\n        }\n    },\n    \"authors\": [\n        {\n            \"name\": \"Alejandro Anasagasti Cambara\",\n            \"email\": \"anasagastialejandro@gmail.com\"\n        }\n    ],\n    \"minimum-stability\": \"dev\",\n    \"require\": {\n        \"php\": \"8.2\",\n        \"illuminate/support\": \"^8.0|^9.0|^10.0\"\n    }\n}\n"
+        }
+    ]
+}
