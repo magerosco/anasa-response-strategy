@@ -75,39 +75,7 @@ class ApiOrWebMiddleware
 $service->setMethod($request->expectsJson() || $request->is('api/*') ? 'API' : $methodName);
 ```
 
-2- Set Service Provider and Response Service provider,
-
-```php
-<?php
-
-namespace App\Providers;
-
-use Illuminate\Support\ServiceProvider;
-use Anasa\ResponseStrategy\AdditionalDataRequest;
-
-class AppServiceProvider extends ServiceProvider
-{
-    /**
-     * Register any application services.
-     */
-    public function register(): void
-    {
-        //...
-        $this->app->singleton('additionalDataRequest', function ($app) {
-            return new AdditionalDataRequest;
-        });
-    }
-
-    /**
-     * Bootstrap any application services.
-     */
-    public function boot(): void
-    {
-       //
-    }
-}
-
-```
+2- Set Response Service provider,
 
 ```php
 <?php
@@ -225,7 +193,7 @@ class YourController extends Controller
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use Anasa\ResponseStrategy\Facades\AdditionalDataRequest;
+use Anasa\ResponseStrategy\AdditionalDataRequest;
 
 class GatewayTest extends TestCase
 {
@@ -235,6 +203,7 @@ class GatewayTest extends TestCase
     {
         parent::setUp();
 
+        $service = AdditionalDataRequest::getInstance();
         $service->setMethod('API');
     }
 ```
