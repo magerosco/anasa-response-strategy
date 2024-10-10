@@ -11,7 +11,7 @@ class RedirectResponseStrategy implements ResponseStrategyInterface
 {
     public function getResponse(StrategyDataInterface $data = null)
     {
-        try {            
+        try {
             $service = AdditionalDataRequest::getInstance();
 
             $json_data = ['data' => $data !== null ? $data->getData()?->toJson() : null];
@@ -20,7 +20,7 @@ class RedirectResponseStrategy implements ResponseStrategyInterface
                 $result['message'] = $data->getMessage();
             }
 
-            $statusCode = $data !== null ? $data->getHttpResponse() : 200;
+            $statusCode = $data !== null ? $data->getHttpResponse() : 302;
 
             return redirect()->route($service->getRoute())->with($json_data, $statusCode);
         } catch (Throwable $e) {
