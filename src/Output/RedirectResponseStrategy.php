@@ -15,7 +15,6 @@ class RedirectResponseStrategy implements ResponseStrategyInterface
             $service = AdditionalDataRequest::getInstance();
 
             $json_data = ['data' => $data !== null ? $data->getData()?->toJson() : null];
-
             if ($data !== null && !empty($data->getMessage())) {
                 $result['message'] = $data->getMessage();
             }
